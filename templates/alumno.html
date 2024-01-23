@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{%block container%}
+<h1>FlaskIDGS</h1>
+<h1>Alumnos</h1>
+<h2>Escuela: {{titulo}}</h2>
+    {%for no in nombres%}
+        <h1>{{no}}</h1>
+    {%endfor%}
+{%endblock%}
+  
