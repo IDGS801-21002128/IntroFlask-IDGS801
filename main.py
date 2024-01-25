@@ -47,8 +47,34 @@ def edad(edad):
     return "tu edad es: {}".format(edad)
 
 
+@app.route("/calcular",methods=["GET","POST"])
+def calcular():
+    if request.method == "POST":
+        n1 = request.form.get("n1")
+        n2 = request.form.get("n2")
+        return "la Mulrtiplacion de {} x {} es: {}".format(n1,n2,str(int(n1)*int(n2)))
+    else:
 
+        return '''
+    <form action="/calcular" method="POST">
+        <label>N1:</label>
+        <input type="text" name="n1"><br>
+        <label>N2:</label>
+        <input type="text" name="n2"><br>
+        <input type="submit"/>
 
+    </form>
+'''
+
+@app.route("/operasBAs")
+def operas():
+    return render_template("operasBas.html")
+@app.route("/resultado",methods=["GET","POST"])
+def resultado():
+     if request.method == "POST":
+        n1 = request.form.get("n1")
+        n2 = request.form.get("n2")
+        return "la Mulrtiplacion de {} x {} es: {}".format(n1,n2,str(int(n1)*int(n2)))
 if __name__=="__main__":
     app.run(debug=True)
     
