@@ -1,16 +1,17 @@
 from flask import *
-
+from forms import UserForm
 app=Flask(__name__)
 
 @app.route("/")
 def index():
     return render_template("index.html")
 
-@app.route("/alumno")
+@app.route("/alumno",methods=['GET','POST'])
 def alumno():
-    nombres=["pedro","robaerto","erick","diego"]
-    titulo="UTL!!!!!!1"
-    return render_template("alumno.html",titulo=titulo,nombres=nombres)
+    alumno_clase = UserForm(request.form)
+    if request.method == "POST":
+       pass
+    return render_template("alumno.html",form=alumno_clase)
 
 @app.route("/maestro")
 def maestro():
