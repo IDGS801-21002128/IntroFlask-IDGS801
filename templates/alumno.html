@@ -2,7 +2,7 @@
 {%block container%}
 {%import "macro.html" as macros%}
 
-<form action="">
+<form action="" method="POST" novalidate>
     <div class="row control-group">
         <div class="form-group col-xs-12 floating-label-form-group ontrols">
             {{macros.camposNuevos(form.nombre,class="form-control")}}
@@ -24,8 +24,13 @@
         </div>          
     </div>
 
-    <input type="submit">
+    <input type="submit" id="btn1" value="Registrar">
 </form>
-    
+
+<p>Nombre: {{nombre}}</p>
+<p>paterno: {{apaterno}}</p>
+<p>materno: {{amaterno}}</p>
+<p>Numero Celular: {{numeroCelular}}</p>
+ 
 {%endblock%}
   
