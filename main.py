@@ -12,16 +12,18 @@ def alumno():
     nombre=''
     apaterno=''
     amaterno=''
+    email=""
     numeroCelular=''
-    if request.method == "POST":
-       nombre=alumno_clase.nombre.data
+    if request.method == "POST" and alumno_clase.validate():
+       nombre=alumno_clase.nombre
+       ##email= alumno_clase.email
        apaterno=alumno_clase.apaterno.data
        amaterno=alumno_clase.amaterno.data
        numeroCelular=alumno_clase.numeroCelular
        
-       print("Nombre: {}, Apellido Paterno: {}, Apellido Materno: {}, NumeroCeular: {}".format(nombre,apaterno,amaterno,numeroCelular))
+       print("Nombre: {}, Apellido Paterno: {}, Apellido Materno: {}, NumeroCeular: {}".format(nombre,apaterno,amaterno,numeroCelular,email))
 
-    return render_template("alumno.html",form=alumno_clase,nombre=nombre,apaterno=apaterno,amaterno=amaterno,numeroCelular=numeroCelular)
+    return render_template("alumno.html",form=alumno_clase,nombre=nombre,apaterno=apaterno,amaterno=amaterno,numeroCelular=numeroCelular,email=email)
 
 @app.route("/maestro")
 def maestro():
