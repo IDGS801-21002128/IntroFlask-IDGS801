@@ -16,5 +16,5 @@ class UserForm(Form):
         validators.length(min=4,max=10,message="ingresa apellido materno valido")
         ])
     numeroCelular=IntegerField('nCelular',[
-        validators.NumberRange(min=12,max=12,message="ingrese un numero celular valido")
+        validators.DataRequired(message="ingrese un numero celular valido")
     ])
